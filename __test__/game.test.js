@@ -38,10 +38,10 @@ describe('Game', () => {
     })
 
     it('Starts the game with a random player', () => {
-      Math.random = () => 0.4; // Mock Math.random
+      Math.random = () => 0.4 // Mock Math.random
       expect(new Game(p1, p2).player).toBe('Salem')
 
-      Math.random = () => 0.6; // Mock Math.random
+      Math.random = () => 0.6 // Mock Math.random
       expect(new Game(p1, p2).player).toBe('Nate')
     })
   })
@@ -60,7 +60,7 @@ describe('Game', () => {
 
   describe('nextPlayer', () => {
     it('Sets the current player to be whoever it is not', () => {
-      Math.random = () => 0.4; // Mock Math.random
+      Math.random = () => 0.4 // Mock Math.random
       expect(game.player).toBe('Salem')
       game.nextPlayer()
       expect(game.player).toBe('Nate')
@@ -76,7 +76,7 @@ describe('Game', () => {
         expect(game.hasWinner()).toBe(true)
 
         for (let c = 0; c < game.board[r].length; c++) {
-          game.board[r][c] = undefined; // Clear the row
+          game.board[r][c] = undefined // Clear the row
         }
       }
     })
@@ -89,7 +89,7 @@ describe('Game', () => {
         expect(game.hasWinner()).toBe(true)
 
         for (let c = 0; c < game.board[r].length; c++) {
-          game.board[c][r] = undefined; // Clear the column
+          game.board[c][r] = undefined // Clear the column
         }
       }
     })
