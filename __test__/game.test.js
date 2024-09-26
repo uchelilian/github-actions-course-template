@@ -63,7 +63,7 @@ describe('Game', () => {
       Math.random = () => 0.4 // Mock Math.random
       expect(game.player).toBe('Nate')
       game.nextPlayer()
-      expect(game.player).toBe('Nate')
+      expect(game.player).toBe('Salem')
     })
   })
 
