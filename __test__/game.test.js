@@ -25,16 +25,16 @@ describe('Game', () => {
     game = new Game(p1, p2)
   })
 
-  class Game {
-  constructor(p1, p2) {
-    this.p1 = p1;
-    this.p2 = p2;
-    this.board = Array.from({ length: 3 }, () => Array(3).fill(undefined)); // Example for a 3x3 board
-    this.player = Math.random() < 0.5 ? p1 : p2;
-  }
+//   class Game {
+//   constructor(p1, p2) {
+//     this.p1 = p1;
+//     this.p2 = p2;
+//     this.board = Array.from({ length: 3 }, () => Array(3).fill(undefined)); // Example for a 3x3 board
+//     this.player = Math.random() < 0.5 ? p1 : p2;
+//   }
 
-  // Other methods...
-}
+//   // Other methods...
+// }
 
 
   describe('Initialization', () => {
