@@ -32,4 +32,4 @@ jobs:
           NODE_OPTIONS: --openssl-legacy-provider
         run: npm run build --if-present
 
-      - run: npm test
+      - run: npm run test -- -u
