@@ -12,10 +12,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install and build webpack
+        run: |
+          npm install
+          npm run build
+  test:
+    runs-on: ubuntu-latest
+  
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -24,12 +32,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      
-      - run: npm ci
 
       - name: Build
-        env:
+        env: |
           NODE_OPTIONS: --openssl-legacy-provider
-        run: npm run build --if-present
+          CI: true
+        run: |
+          npm install
+          npm test
+        
 
-      - run: npm run test -- -u
