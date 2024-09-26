@@ -23,28 +23,29 @@ describe('Game', () => {
     game = new Game(p1, p2)
   })
 
-  describe('Initialization', () => {
-    it('Initializes with two players', () => {
-      expect(game.p1).toBe('Salem')
-      expect(game.p2).toBe('Nate')
-    })
-
-    it('Initializes with an empty board', () => {
-      for (let r = 0; r < game.board.length; r++) {
-        for (let c = 0; c < game.board[r].length; c++) {
-          expect(game.board[r][c]).toBeUndefined() // Check for undefined
-        }
-      }
-    })
-
-    it('Starts the game with a random player', () => {
-      Math.random = () => 0.4 // Mock Math.random
-      expect(new Game(p1, p2).player).toBe('Salem')
-
-      Math.random = () => 0.6 // Mock Math.random
-      expect(new Game(p1, p2).player).toBe('Nate')
-    })
+describe('Initialization', () => {
+  it('Initializes with two players', () => {
+    expect(game.p1).toBe('Salem')
+    expect(game.p2).toBe('Nate')
   })
+
+  it('Initializes with an empty board', () => {
+    for (let r = 0; r < game.board.length; r++) {
+      for (let c = 0; c < game.board[r].length; c++) {
+        expect(game.board[r][c]).toBeNull() // Check for null
+      }
+    }
+  })
+
+  it('Starts the game with a random player', () => {
+    Math.random = () => 0.4 // Mock Math.random
+    expect(new Game(p1, p2).player).toBe('Salem')
+
+    Math.random = () => 0.6 // Mock Math.random
+    expect(new Game(p1, p2).player).toBe('Nate')
+  })
+})
+
 
   describe('turn', () => {
     it("Inserts an 'X' into the top center", () => {
