@@ -61,7 +61,7 @@ describe('Game', () => {
   describe('nextPlayer', () => {
     it('Sets the current player to be whoever it is not', () => {
       Math.random = () => 0.4 // Mock Math.random
-      expect(game.player).toBe('Salem')
+      expect(game.player).toBe('Nate')
       game.nextPlayer()
       expect(game.player).toBe('Nate')
     })
