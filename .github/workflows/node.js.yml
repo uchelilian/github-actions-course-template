@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: npm install and build webpack
+        env: 
+          NODE_OPTIONS: --openssl-legacy-provider
         run: |
           npm install
           npm run build
@@ -21,6 +23,7 @@ jobs:
           path: public/
   test:
     runs-on: ubuntu-latest
+    needs: build
   
     strategy:
       matrix:
