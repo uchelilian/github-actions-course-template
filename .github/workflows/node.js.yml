@@ -40,4 +40,6 @@ jobs:
           npm run build
 
       - name: Run tests
-        run: npm test
+        run: |
+          npm update
+          npm test -- -u
